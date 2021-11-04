@@ -8,7 +8,6 @@ class VideoProcessor(VideoProcessorBase):
     def __init__(self):
         self.faceCascade = cv2.CascadeClassifier(
             "./computervision/classifiers/lbpcascade_frontalface_improved.xml")
-
         # Initialize variables
         self.tracker_cnt = 0
         self.face_w = 100
@@ -24,12 +23,18 @@ class VideoProcessor(VideoProcessorBase):
         self.THRESHOLD_A = 20
         self.THRESHOLD_B = 50
 
+        # stores motion speed
+        self.motion_list = []
+
     def recv(self, frame: av.VideoFrame) -> av.VideoFrame:
+        # Convert to OpenCV image
         img = frame.to_ndarray(format="bgr24")
+
+        grey = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
         # Detect faces in the image
         faces = self.faceCascade.detectMultiScale(
-            img,
+            grey,
             scaleFactor=1.1,
             minNeighbors=3,
             minSize=(30, 30)
@@ -67,8 +72,12 @@ class VideoProcessor(VideoProcessorBase):
                     ok = self.tracker.init(self.last_img, bbox)
                 except:
                     ok = self.tracker.init(img, bbox)
+
             # Update tracker
-            ok, bbox = self.tracker.update(img)
+            try:
+                ok, bbox = self.tracker.update(img)
+            except:
+                print("Bad allocation")
 
             # Draw bounding box
             if ok:
@@ -104,4 +113,19 @@ class VideoProcessor(VideoProcessorBase):
             img = cv2.putText(img, "Motion: " + str(speed), (100, 50),
                               cv2.FONT_HERSHEY_SIMPLEX, 0.75, (0, 0, 255), 2)
 
+        # Append motion speed to list
+        self.motion_list.append(speed)
+
         return av.VideoFrame.from_ndarray(img, format="bgr24")
+
+
+# def CalculateSpeedAndAccerleration(motion_list):
+#     # Calculate speed and acceleration
+#     speed_and_acceleration = []
+#     for i in range(len(motion_list)):
+#         point = []
+#         point[0] = motion_list[i]
+#         point[1] = motion_list[i] * 2
+#         speed_and_acceleration.append(point)
+
+#     return speed_and_acceleration
