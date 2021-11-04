@@ -1,5 +1,6 @@
 ﻿numpy==1.21.3
 streamlit==1.1.0
+opencv-python==4.2.0.34
 streamlit-webrtc==0.31.1
 hydralit==1.0.10
 hydralit-components==1.0.5
