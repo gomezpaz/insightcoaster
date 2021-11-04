@@ -75,7 +75,7 @@ def Models():
 
         components.html(
             """
-            <div class="sketchfab-embed-wrapper"> <iframe title="Train v1" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/4a64595deb6f4db8a7ff73ca087b5b85/embed"> </iframe> <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"> <a href="https://sketchfab.com/3d-models/train-v1-4a64595deb6f4db8a7ff73ca087b5b85?utm_medium=embed&utm_campaign=share-popup&utm_content=4a64595deb6f4db8a7ff73ca087b5b85" target="_blank" style="font-weight: bold; color: #1CAAD9;"> Train v1 </a> by <a href="https://sketchfab.com/kizzie124?utm_medium=embed&utm_campaign=share-popup&utm_content=4a64595deb6f4db8a7ff73ca087b5b85" target="_blank" style="font-weight: bold; color: #1CAAD9;"> kizzie124 </a> on <a href="https://sketchfab.com?utm_medium=embed&utm_campaign=share-popup&utm_content=4a64595deb6f4db8a7ff73ca087b5b85" target="_blank" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a></p></div>
+            <div class="sketchfab-embed-wrapper"> <iframe title="Insight Coaster" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/4a64595deb6f4db8a7ff73ca087b5b85/embed"> </iframe> <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"> <a href="https://sketchfab.com/3d-models/insight-coaster-4a64595deb6f4db8a7ff73ca087b5b85?utm_medium=embed&utm_campaign=share-popup&utm_content=4a64595deb6f4db8a7ff73ca087b5b85" target="_blank" style="font-weight: bold; color: #1CAAD9;"> Insight Coaster </a> by <a href="https://sketchfab.com/kizzie124?utm_medium=embed&utm_campaign=share-popup&utm_content=4a64595deb6f4db8a7ff73ca087b5b85" target="_blank" style="font-weight: bold; color: #1CAAD9;"> kizzie124 </a> on <a href="https://sketchfab.com?utm_medium=embed&utm_campaign=share-popup&utm_content=4a64595deb6f4db8a7ff73ca087b5b85" target="_blank" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a></p></div>
             """
         )
     with col2:
@@ -83,12 +83,27 @@ def Models():
         st.write('')
         components.html(
             """
-            <div class="sketchfab-embed-wrapper"> 
-            <iframe title="Camera" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/1f1768423f2e4de08f5854d514ccf7f1/embed"> </iframe> <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"> <a href="https://sketchfab.com/3d-models/camera-1f1768423f2e4de08f5854d514ccf7f1?utm_medium=embed&utm_campaign=share-popup&utm_content=1f1768423f2e4de08f5854d514ccf7f1" target="_blank" style="font-weight: bold; color: #1CAAD9;"> Camera </a> by <a href="https://sketchfab.com/kizzie124?utm_medium=embed&utm_campaign=share-popup&utm_content=1f1768423f2e4de08f5854d514ccf7f1" target="_blank" style="font-weight: bold; color: #1CAAD9;"> kizzie124 </a> on <a href="https://sketchfab.com?utm_medium=embed&utm_campaign=share-popup&utm_content=1f1768423f2e4de08f5854d514ccf7f1" target="_blank" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a></p>
-            </div>
+            <div class="sketchfab-embed-wrapper"> <iframe title="Camera" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/1f1768423f2e4de08f5854d514ccf7f1/embed"> </iframe> <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"> <a href="https://sketchfab.com/3d-models/camera-1f1768423f2e4de08f5854d514ccf7f1?utm_medium=embed&utm_campaign=share-popup&utm_content=1f1768423f2e4de08f5854d514ccf7f1" target="_blank" style="font-weight: bold; color: #1CAAD9;"> Camera </a> by <a href="https://sketchfab.com/kizzie124?utm_medium=embed&utm_campaign=share-popup&utm_content=1f1768423f2e4de08f5854d514ccf7f1" target="_blank" style="font-weight: bold; color: #1CAAD9;"> kizzie124 </a> on <a href="https://sketchfab.com?utm_medium=embed&utm_campaign=share-popup&utm_content=1f1768423f2e4de08f5854d514ccf7f1" target="_blank" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a></p></div>
             """
         )
+    col1, col2 = st.columns(2)
+    with col1:
+        st.subheader('3. Roller Coaster Seat')
+        st.write('')
 
+        components.html(
+            """
+            <div class="sketchfab-embed-wrapper"> <iframe title="Roller seat" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/76ff3282d6e84915b5f7f28dd70d0252/embed"> </iframe> <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"> <a href="https://sketchfab.com/3d-models/roller-seat-76ff3282d6e84915b5f7f28dd70d0252?utm_medium=embed&utm_campaign=share-popup&utm_content=76ff3282d6e84915b5f7f28dd70d0252" target="_blank" style="font-weight: bold; color: #1CAAD9;"> Roller seat </a> by <a href="https://sketchfab.com/kizzie124?utm_medium=embed&utm_campaign=share-popup&utm_content=76ff3282d6e84915b5f7f28dd70d0252" target="_blank" style="font-weight: bold; color: #1CAAD9;"> kizzie124 </a> on <a href="https://sketchfab.com?utm_medium=embed&utm_campaign=share-popup&utm_content=76ff3282d6e84915b5f7f28dd70d0252" target="_blank" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a></p></div>
+            """
+        )
+    with col2:
+        st.subheader('4.  Adjustable Bar Lock')
+        st.write('')
+        components.html(
+            """
+            <div class="sketchfab-embed-wrapper"> <iframe title="Adjustable Bar Lock" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/901cb1dd33bd4bae8204b2f60f2b7805/embed"> </iframe> <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"> <a href="https://sketchfab.com/3d-models/adjustable-bar-lock-901cb1dd33bd4bae8204b2f60f2b7805?utm_medium=embed&utm_campaign=share-popup&utm_content=901cb1dd33bd4bae8204b2f60f2b7805" target="_blank" style="font-weight: bold; color: #1CAAD9;"> Adjustable Bar Lock </a> by <a href="https://sketchfab.com/kizzie124?utm_medium=embed&utm_campaign=share-popup&utm_content=901cb1dd33bd4bae8204b2f60f2b7805" target="_blank" style="font-weight: bold; color: #1CAAD9;"> kizzie124 </a> on <a href="https://sketchfab.com?utm_medium=embed&utm_campaign=share-popup&utm_content=901cb1dd33bd4bae8204b2f60f2b7805" target="_blank" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a></p></div>
+            """
+        )
 
 @app.addapp(title='Software')
 def Demo():
