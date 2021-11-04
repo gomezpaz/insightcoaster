@@ -11,7 +11,7 @@ RTC_CONFIGURATION = RTCConfiguration(
     {"iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]}
 )
 
-app = hy.HydraApp(title='Head Tracker App')
+app = hy.HydraApp(title='Insight Coaster')
 
 hide_st_style = """
             <style>
@@ -23,7 +23,7 @@ hide_st_style = """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
 
-@app.addapp(title='Home')
+@app.addapp(title='Home')   
 def Home():
     col1, col2, col3, col4, col5 = st.columns(5)
     with col3:
@@ -32,7 +32,7 @@ def Home():
     st.markdown('Accidents in roller coasters are still common in 2021. Therefore, the our team came together to develop a Computer Vision software which has the objective of reducing the number of accidents in these rides: the *Insight Coaster*.')
 
     st.subheader('1. What Does the Software Do?')
-    st.write('The Insight Coaster is a system developed for theme parks to help detect injuries in rollercoaster rides.')
+    st.write('The Insight Coaster is a system developed for theme parks to help detect possible injuries in rollercoaster, due to sudden moves during the rides.')
 
     st.subheader('2. Retrieving Data')
     st.markdown(
@@ -42,11 +42,10 @@ def Home():
 
     col1, col2 = st.columns(2)
     with col1:
-        st.image("./img/rideInjuries.png",
-                 caption="Percentage of each of the rypes of injuries.")
+        st.image("./img/rideInjuries.png", caption="Percentage of each of the rypes of injuries.")
     with col2:
-        st.image("./img/rideTypes.png",
-                 caption="Percentage of accidents in different types of attractions.")
+        st.image("./img/rideTypes.png", caption="Percentage of accidents in different types of attractions.")
+
 
     st.markdown('Moreover, information from the International Association of Amusement Parks and Attractions (IAPA) shows that 1171 riders got a type of injury, meaning that 3.9 people out of 1 million will get injured.')
 
@@ -58,17 +57,15 @@ def Home():
     st.write('')
 
     st.subheader('5. Testing the Insight Coaster')
-    st.write('')
+    st.markdown('Testing is a crucial part of testing software; for that we created a Demo app in the *Software* tab, where users can test the app with their own camera.')
 
-# 3D Models tab
-
-
+## 3D Models tab
 @app.addapp(title='3D Models')
 def Models():
     col1, col2, col3, col4, col5 = st.columns(5)
     with col3:
         st.header("3D Models")
-
+    
     st.markdown(
         "At the moment, there are already many models of cameras suitable for the protection standard IP67.")
     st.markdown("All cameras have a slender design, a camera from IMPERX was chosen to create a 3D model, since the sheet with the specifications is publicly available. Using the SolidWorks software, a virtual model of this camera was created, and implemented into the design of a roller coaster cart.")
@@ -111,7 +108,6 @@ def Models():
             """
         )
 
-
 @app.addapp(title='Software')
 def Demo():
     st.header("Computer Vision Software")
@@ -134,7 +130,6 @@ def Demo():
             motion_list = webrtc_ctx.video_processor.motion_list
             plot.line_chart(motion_list)
 
-
 @app.addapp(title='Our Team')
 def Contact():
     st.subheader('Inspiration')
@@ -144,6 +139,7 @@ def Contact():
 
     st.subheader('What we learned')
     st.markdown("The team was able to be creative and work together effectively. Even though most of the members were not familiar with each other before the beginning of the Innovation Challenge, they worked respectfully and fast-paced. Besides that, the students were able to practice their programming and design skills and even build new ones -which will be very helpful throughout their STEM careers.")
+
 
     st.subheader('Meet the Team')
     col1, col2 = st.columns(2)
@@ -173,15 +169,14 @@ def Contact():
         st.write("Vaughn College of Aeronautics and Technology")
         st.write("kirill.sokolov124@gmail.com")
 
-
 @app.addapp(title='Contact Us')
 def Contact():
     col1, col2, col3, col4, col5 = st.columns(5)
     with col3:
         st.header('Get in touch')
-
-    # link for Form Submit: https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqa2Uyem5ldDJKVjRkaTBoTVJDRWNrUUZaWkhSZ3xBQ3Jtc0tsREpuSFdkbV9ENEFFUFNuNUlpZ3VsaVZWY1VLYl9PbHFFYnQtZk5pZnQtUjNQN1QzQ1NPNVUwcjFPWU9ONjVSQ1lVRmQxLXRKS1RHeVVmbVBieWxjU1RsVUlzNGtXM1Z4cGtLVHE1Z2hVbXYzZlZYWQ&q=https%3A%2F%2Fformsubmit.co%2F
-    # AFTER SETTING THE HEADER for contact us section
+   
+    ##link for Form Submit: https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqa2Uyem5ldDJKVjRkaTBoTVJDRWNrUUZaWkhSZ3xBQ3Jtc0tsREpuSFdkbV9ENEFFUFNuNUlpZ3VsaVZWY1VLYl9PbHFFYnQtZk5pZnQtUjNQN1QzQ1NPNVUwcjFPWU9ONjVSQ1lVRmQxLXRKS1RHeVVmbVBieWxjU1RsVUlzNGtXM1Z4cGtLVHE1Z2hVbXYzZlZYWQ&q=https%3A%2F%2Fformsubmit.co%2F
+    ##AFTER SETTING THE HEADER for contact us section
 
     contact_us = """
     <form action="https://formsubmit.co/cris23molina@gmail.com" method="POST">
@@ -199,7 +194,9 @@ def Contact():
         with open(file_name) as f:
             st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
+
     local_css("style/style.css")
+    
 
 
 app.run()
