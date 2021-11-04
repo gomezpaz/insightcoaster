@@ -29,7 +29,7 @@ def Home():
         st.image("./img/logo.png", width=500)
 
     
-    st.markdown('Accidents in roller coasters are still common in 2021. Therefore, the *Insight Coaster* came together to develop a Computer Vision software which has the objective of reducing the number of accidents in these rides: the *Insight Coaster*.')
+    st.markdown('Accidents in roller coasters are still common in 2021. Therefore, the our team came together to develop a Computer Vision software which has the objective of reducing the number of accidents in these rides: the *Insight Coaster*.')
 
     st.subheader('1. What Does the Software Do?')
     st.write('The Insight Coaster is a system developed for theme parks to help detect injuries in rollercoaster rides.')
@@ -113,9 +113,18 @@ def Demo():
 
     plot = st.line_chart(chart_data)
 
-@app.addapp(title='About Us')
+@app.addapp(title='Our Team')
 def Contact():
-    st.header('Meet the Team')
+    st.subheader('Inspiration')
+    st.markdown("On November 2nd, 2021, a group of engineers and computer scientist collectively came together to attend the SHPE 2021 Innovation Challenge with the objective of implementing a STEM project related to the Entertainment Industry.")
+
+    # st.header('Challenges faced')
+
+    st.subheader('What we learned')
+    st.markdown("The team was able to be creative and work together effectively. Even though most of the members were not familiar with each other before the beginning of the Innovation Challenge, they worked respectfully and fast-paced. Besides that, the students were able to practice their programming and design skills and even build new ones -which will be very helpful throughout their STEM careers.")
+
+
+    st.subheader('Meet the Team')
     col1, col2 = st.columns(2)
     with col1:
         st.image("./img/bianca.jpg", width=300)
