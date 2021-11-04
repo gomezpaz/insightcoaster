@@ -51,7 +51,9 @@ def Home():
 
     st.subheader('3. Development of a Prototype')
     st.write('Using the SolidWorks software, a virtual model of a camera was created and implemented into the design of a roller coaster cart.')
-    st.image("./img/cam.jpg", caption="Camera prototype on SolidWorks.")
+    col1, col2, col3 = st.columns(3)
+    with col2:
+        st.image("./img/cam.jpg", caption="Camera prototype on SolidWorks.")
 
     st.subheader('4. Software Implementation')
     st.write('')
@@ -110,7 +112,7 @@ def Models():
 
 @app.addapp(title='Software')
 def Demo():
-    st.header("Computer Vision Software")
+    st.subheader("Computer Vision Software")
 
     webrtc_ctx = webrtc_streamer(
         key="motion-tracker",
