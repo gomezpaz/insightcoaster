@@ -115,15 +115,9 @@ def Models():
 
 @app.addapp(title='Software')
 def Demo():
-<<<<<<< HEAD
     st.header("Computer Vision Software")
     st.write('Press START and move from side to side as if you were in a coaster (wahoo!). Press SHOW DATA to visualize your motion chart.')
     st.write('*Mobile devices not supported. Make sure to have a high speed connection for the algo to perform correctly.*')
-=======
-    col1, col2, col3 = st.columns(3)
-    with col2:
-        st.subheader("Computer Vision Software")
->>>>>>> 6a0cd8f55aab77505b96e0fb8193339f2701f46c
 
     webrtc_ctx = webrtc_streamer(
         key="motion-tracker",
@@ -154,9 +148,11 @@ def Contact():
 
     st.subheader('Challenges faced')
     st.markdown("- There is no existent reliable solution for non-frontal face tracking in low-cost cameras. We had to combine linear-regression with object tracking techniques to achieve a performant algorithm.")
-    st.markdown("- Lack of testing data. Passengers are often filmed as a group, and not as individuals.")
+    st.markdown(
+        "- Lack of testing data. Passengers are often filmed as a group, and not as individuals.")
     st.markdown("- Deprecated data about coaster injuries. Saferparks is no longer actively engaged in amusement ride accidents' research.")
-    st.markdown("- Lack of actual dimensions for 3D models. Research was necessary.")
+    st.markdown(
+        "- Lack of actual dimensions for 3D models. Research was necessary.")
 
     st.subheader('What we learned')
     st.markdown("The team was able to be creative and work together effectively. Even though most of the members were not familiar with each other before the beginning of the Innovation Challenge, they worked respectfully and fast-paced. Besides that, the students were able to practice their programming and design skills and even build new ones -which will be very helpful throughout their STEM careers.")
