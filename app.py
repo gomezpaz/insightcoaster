@@ -56,7 +56,7 @@ def Home():
         st.image("./img/cam.jpg", caption="Camera prototype on SolidWorks.")
 
     st.subheader('4. Software Implementation')
-    st.write('')
+    st.markdown("At the moment, there is no existent reliable solution for non-frontal face tracking in low-cost cameras. Therefore Insight Coaster combines linear-regression along with object tracking techniques to achieve a performant algorithm that detects the user's head and the movement.")
 
     st.subheader('5. Testing the Insight Coaster')
     st.markdown('Testing is a crucial part of testing software; for that we created a Demo app in the *Software* tab, where users can test the app with their own camera.')
