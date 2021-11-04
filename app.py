@@ -29,10 +29,10 @@ def Home():
     with col3:
         st.image("./img/logo.png", width=500)
 
-    st.markdown('Accidents in roller coasters are still common in 2021. Therefore, the our team came together to develop a Computer Vision software which has the objective of reducing the number of accidents in these rides: the *Insight Coaster*.')
+    st.markdown('Accidents in roller coasters are still common in 2021. Therefore, our team came together to develop a Computer Vision software which has the objective of reducing the number of accidents in these rides: the *Insight Coaster*.')
 
     st.subheader('1. What Does the Software Do?')
-    st.write('The Insight Coaster is a system developed for theme parks to help detect possible injuries in rollercoaster, due to sudden moves during the rides.')
+    st.markdown('We are a data gathering and analysis service that efficiently helps increase passenger safety in coaster rides. One injury is one too many. Using Computer Vision and Machine Learning techniques, we build on existing products to come up with a unique and unprecedented solution to this pressing issue.')
 
     st.subheader('2. Retrieving Data')
     st.markdown(
@@ -59,7 +59,7 @@ def Home():
     st.markdown("At the moment, there is no existent reliable solution for non-frontal face tracking in low-cost cameras. Therefore Insight Coaster combines linear-regression along with object tracking techniques to achieve a performant algorithm that detects the user's head and the movement.")
 
     st.subheader('5. Testing the Insight Coaster')
-    st.markdown('Testing is a crucial part of testing software; for that we created a Demo app in the *Software* tab, where users can test the app with their own camera.')
+    st.markdown('Testing is a crucial part of testing software; therefore, we created a Demo app in the *Software* tab, where users can test the application with their own camera.')
 
 ## 3D Models tab
 @app.addapp(title='3D Models')
@@ -112,7 +112,9 @@ def Models():
 
 @app.addapp(title='Software')
 def Demo():
-    st.subheader("Computer Vision Software")
+    col1, col2, col3 = st.columns(3)
+    with col2:
+        st.subheader("Computer Vision Software")
 
     webrtc_ctx = webrtc_streamer(
         key="motion-tracker",
@@ -141,7 +143,11 @@ def Contact():
     st.subheader('Inspiration')
     st.markdown("On November 2nd, 2021, a group of engineers and computer scientist collectively came together to attend the SHPE 2021 Innovation Challenge with the objective of implementing a STEM project related to the Entertainment Industry.")
 
-    # st.header('Challenges faced')
+    st.subheader('Challenges faced')
+    st.markdown("- There is no existent reliable solution for non-frontal face tracking in low-cost cameras. We had to combine linear-regression with object tracking techniques to achieve a performant algorithm.")
+    st.markdown("- Lack of testing data. Passengers are often filmed as a group, and not as individuals.")
+    st.markdown("- Deprecated data about coaster injuries. Saferparks is no longer actively engaged in amusement ride accidents' research.")
+    st.markdown("- Lack of actual dimensions for 3D models. Research was necessary.")
 
     st.subheader('What we learned')
     st.markdown("The team was able to be creative and work together effectively. Even though most of the members were not familiar with each other before the beginning of the Innovation Challenge, they worked respectfully and fast-paced. Besides that, the students were able to practice their programming and design skills and even build new ones -which will be very helpful throughout their STEM careers.")
