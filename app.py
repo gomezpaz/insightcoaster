@@ -1,11 +1,15 @@
 from os import write
 import streamlit as st
-from streamlit_webrtc import webrtc_streamer
+from streamlit_webrtc import webrtc_streamer, WebRtcMode, RTCConfiguration
 import streamlit.components.v1 as components
 import hydralit as hy
-from computervision.motiontracker import VideoTransformer
+from computervision.motiontracker import VideoProcessor
 import pandas as pd
 import numpy as np
+
+RTC_CONFIGURATION = RTCConfiguration(
+    {"iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]}
+)
 
 app = hy.HydraApp(title='Head Tracker App')
 
@@ -51,7 +55,14 @@ def Demo():
     # webrtc_streamer(key="demo",
     #                 video_transformer_factory=VideoTransformer)
 
-    webrtc_streamer(key="example")
+    webrtc_ctx = webrtc_streamer(
+        key="object-detection",
+        mode=WebRtcMode.SENDRECV,
+        rtc_configuration=RTC_CONFIGURATION,
+        video_processor_factory=VideoProcessor,
+        media_stream_constraints={"video": True, "audio": False},
+        async_processing=True,
+    )
 
     # Showcase data
     chart_data = pd.DataFrame(np.random.randn(20, 3),
