@@ -23,10 +23,10 @@ hide_st_style = """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
 
-@app.addapp(title='Home')   
+@app.addapp(title='Home')
 def Home():
     col1, col2, col3, col4, col5 = st.columns(5)
-    with col3:
+    with col1:
         st.image("./img/logo.png", width=500)
 
     st.markdown('Accidents in roller coasters are still common in 2021. Therefore, the our team came together to develop a Computer Vision software which has the objective of reducing the number of accidents in these rides: the *Insight Coaster*.')
@@ -42,10 +42,11 @@ def Home():
 
     col1, col2 = st.columns(2)
     with col1:
-        st.image("./img/rideInjuries.png", caption="Percentage of each of the rypes of injuries.")
+        st.image("./img/rideInjuries.png",
+                 caption="Percentage of each of the rypes of injuries.")
     with col2:
-        st.image("./img/rideTypes.png", caption="Percentage of accidents in different types of attractions.")
-
+        st.image("./img/rideTypes.png",
+                 caption="Percentage of accidents in different types of attractions.")
 
     st.markdown('Moreover, information from the International Association of Amusement Parks and Attractions (IAPA) shows that 1171 riders got a type of injury, meaning that 3.9 people out of 1 million will get injured.')
 
@@ -61,13 +62,14 @@ def Home():
     st.subheader('5. Testing the Insight Coaster')
     st.markdown('Testing is a crucial part of testing software; for that we created a Demo app in the *Software* tab, where users can test the app with their own camera.')
 
-## 3D Models tab
+# 3D Models tab
+
+
 @app.addapp(title='3D Models')
 def Models():
     col1, col2, col3, col4, col5 = st.columns(5)
-    with col3:
-        st.subheader("3D Models")
-    
+    st.header("3D Models")
+
     st.markdown(
         "At the moment, there are already many models of cameras suitable for the protection standard IP67.")
     st.markdown("All cameras have a slender design, a camera from IMPERX was chosen to create a 3D model, since the sheet with the specifications is publicly available. Using the SolidWorks software, a virtual model of this camera was created, and implemented into the design of a roller coaster cart.")
@@ -110,9 +112,12 @@ def Models():
             """
         )
 
+
 @app.addapp(title='Software')
 def Demo():
-    st.subheader("Computer Vision Software")
+    st.header("Computer Vision Software")
+    st.write('Press START and move from side to side as if you were in a coaster (wahoo!). Press SHOW DATA to visualize your motion chart.')
+    st.write('*Mobile devices not supported. Make sure to have a high speed connection for the algo to perform correctly.*')
 
     webrtc_ctx = webrtc_streamer(
         key="motion-tracker",
@@ -124,19 +129,19 @@ def Demo():
     )
 
     # Init chart
-    plot = st.line_chart([0])
+    plot = st.line_chart(pd.DataFrame([0], columns=['motion']))
 
     # Update data when user clicks
-    if st.button('Show data'):
+    if st.button('SHOW DATA'):
         if webrtc_ctx.video_processor:
             motion_list = webrtc_ctx.video_processor.motion_list
-            plot.line_chart(motion_list)
+            plot.line_chart(pd.DataFrame(motion_list, columns=['motion']))
+
 
 @app.addapp(title='Our Team')
 def Contact():
     col1, col2, col3, col4, col5 = st.columns(5)
-    with col3:
-        st.subheader("Who are we?")
+    st.header("Who are we?")
 
     st.subheader('Inspiration')
     st.markdown("On November 2nd, 2021, a group of engineers and computer scientist collectively came together to attend the SHPE 2021 Innovation Challenge with the objective of implementing a STEM project related to the Entertainment Industry.")
@@ -145,7 +150,6 @@ def Contact():
 
     st.subheader('What we learned')
     st.markdown("The team was able to be creative and work together effectively. Even though most of the members were not familiar with each other before the beginning of the Innovation Challenge, they worked respectfully and fast-paced. Besides that, the students were able to practice their programming and design skills and even build new ones -which will be very helpful throughout their STEM careers.")
-
 
     st.subheader('Meet the Team')
     col1, col2 = st.columns(2)
@@ -175,14 +179,14 @@ def Contact():
         st.write("Vaughn College of Aeronautics and Technology")
         st.write("kirill.sokolov124@gmail.com")
 
+
 @app.addapp(title='Contact Us')
 def Contact():
     col1, col2, col3, col4, col5 = st.columns(5)
-    with col3:
-        st.subheader('Ask us anything!')
-   
-    ##link for Form Submit: https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqa2Uyem5ldDJKVjRkaTBoTVJDRWNrUUZaWkhSZ3xBQ3Jtc0tsREpuSFdkbV9ENEFFUFNuNUlpZ3VsaVZWY1VLYl9PbHFFYnQtZk5pZnQtUjNQN1QzQ1NPNVUwcjFPWU9ONjVSQ1lVRmQxLXRKS1RHeVVmbVBieWxjU1RsVUlzNGtXM1Z4cGtLVHE1Z2hVbXYzZlZYWQ&q=https%3A%2F%2Fformsubmit.co%2F
-    ##AFTER SETTING THE HEADER for contact us section
+    st.header('Ask us anything!')
+
+    # link for Form Submit: https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqa2Uyem5ldDJKVjRkaTBoTVJDRWNrUUZaWkhSZ3xBQ3Jtc0tsREpuSFdkbV9ENEFFUFNuNUlpZ3VsaVZWY1VLYl9PbHFFYnQtZk5pZnQtUjNQN1QzQ1NPNVUwcjFPWU9ONjVSQ1lVRmQxLXRKS1RHeVVmbVBieWxjU1RsVUlzNGtXM1Z4cGtLVHE1Z2hVbXYzZlZYWQ&q=https%3A%2F%2Fformsubmit.co%2F
+    # AFTER SETTING THE HEADER for contact us section
 
     contact_us = """
     <form action="https://formsubmit.co/cris23molina@gmail.com" method="POST">
@@ -200,9 +204,7 @@ def Contact():
         with open(file_name) as f:
             st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
-
     local_css("style/style.css")
-    
 
 
 app.run()

@@ -6,8 +6,10 @@ import av
 
 class VideoProcessor(VideoProcessorBase):
     def __init__(self):
+        # Import frontal face classifier
         self.faceCascade = cv2.CascadeClassifier(
             "./computervision/classifiers/lbpcascade_frontalface_improved.xml")
+
         # Initialize variables
         self.tracker_cnt = 0
         self.face_w = 100
@@ -20,11 +22,14 @@ class VideoProcessor(VideoProcessorBase):
         self.prev_center_x = 0
         self.prev_center_y = 0
 
-        self.THRESHOLD_A = 20
-        self.THRESHOLD_B = 50
+        self.THRESHOLD_A = 20  # Threshold for medium danger motion
+        self.THRESHOLD_B = 50  # Threshold for high danger motion
 
         # stores motion speed
         self.motion_list = []
+
+        # Start counter
+        self.frame_num = 0
 
     def recv(self, frame: av.VideoFrame) -> av.VideoFrame:
         # Convert to OpenCV image
@@ -39,6 +44,11 @@ class VideoProcessor(VideoProcessorBase):
             minNeighbors=3,
             minSize=(30, 30)
         )
+
+        # Initialize first guess as center of the image
+        if self.frame_num == 0:
+            self.face_x = int((img.shape[1] - self.face_w) / 2)
+            self.face_y = int((img.shape[0] - self.face_h) / 2)
 
         # Draw a rectangle around the face
         cnt = 0
@@ -79,18 +89,12 @@ class VideoProcessor(VideoProcessorBase):
             except:
                 print("Bad allocation")
 
-            # Draw bounding box
-            if ok:
-                # Tracking success
-                p1 = (int(bbox[0]), int(bbox[1]))
-                p2 = (int(bbox[0] + bbox[2]), int(bbox[1] + bbox[3]))
-                self.center_x = int(bbox[0] + bbox[2]/2)
-                self.center_y = int(bbox[1] + bbox[3]/2)
-                img = cv2.rectangle(img, p1, p2, (255, 0, 0), 2, 1)
-            else:
-                # Tracking failure
-                img = cv2.putText(img, "Tracking failure detected", (100, 80),
-                                  cv2.FONT_HERSHEY_SIMPLEX, 0.75, (0, 0, 255), 2)
+            # Tracking success
+            p1 = (int(bbox[0]), int(bbox[1]))
+            p2 = (int(bbox[0] + bbox[2]), int(bbox[1] + bbox[3]))
+            self.center_x = int(bbox[0] + bbox[2]/2)
+            self.center_y = int(bbox[1] + bbox[3]/2)
+            img = cv2.rectangle(img, p1, p2, (255, 0, 0), 2, 1)
 
             self.tracker_cnt = self.tracker_cnt + 1
 
@@ -101,6 +105,10 @@ class VideoProcessor(VideoProcessorBase):
         speed = math.sqrt(pow(self.center_x - self.prev_center_x, 2) +
                           pow(self.center_y - self.prev_center_y, 2))
         speed = int(speed * 100) / 100   # Round to 2 decimals
+
+        # Speed is 0 in first iteration
+        if(self.frame_num == 0):
+            speed = 0
 
         # Display speed in the frame
         if (speed < self.THRESHOLD_A):
@@ -115,6 +123,9 @@ class VideoProcessor(VideoProcessorBase):
 
         # Append motion speed to list
         self.motion_list.append(speed)
+
+        # End first frame analysis
+        self.frame_num += 1
 
         return av.VideoFrame.from_ndarray(img, format="bgr24")
 
