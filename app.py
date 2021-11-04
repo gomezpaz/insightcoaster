@@ -48,8 +48,10 @@ plot = st.empty()
 @app.addapp(title='Demo')
 def Demo():
     st.header("Demo")
-    webrtc_streamer(key="demo",
-                    video_transformer_factory=VideoTransformer)
+    # webrtc_streamer(key="demo",
+    #                 video_transformer_factory=VideoTransformer)
+
+    webrtc_streamer(key="demo")
 
     # Showcase data
     chart_data = pd.DataFrame(np.random.randn(20, 3),
