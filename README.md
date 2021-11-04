@@ -1,6 +1,5 @@
 # Insight Coaster
 SHPE 2021 Hackathon project
-----
 
 ![Logo](logo-horizontal.jpg)
 
