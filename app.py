@@ -66,7 +66,7 @@ def Home():
 def Models():
     col1, col2, col3, col4, col5 = st.columns(5)
     with col3:
-        st.header("3D Models")
+        st.subheader("3D Models")
     
     st.markdown(
         "At the moment, there are already many models of cameras suitable for the protection standard IP67.")
@@ -134,6 +134,10 @@ def Demo():
 
 @app.addapp(title='Our Team')
 def Contact():
+    col1, col2, col3, col4, col5 = st.columns(5)
+    with col3:
+        st.subheader("Who are we?")
+
     st.subheader('Inspiration')
     st.markdown("On November 2nd, 2021, a group of engineers and computer scientist collectively came together to attend the SHPE 2021 Innovation Challenge with the objective of implementing a STEM project related to the Entertainment Industry.")
 
@@ -175,7 +179,7 @@ def Contact():
 def Contact():
     col1, col2, col3, col4, col5 = st.columns(5)
     with col3:
-        st.header('Get in touch')
+        st.subheader('Ask us anything!')
    
     ##link for Form Submit: https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqa2Uyem5ldDJKVjRkaTBoTVJDRWNrUUZaWkhSZ3xBQ3Jtc0tsREpuSFdkbV9ENEFFUFNuNUlpZ3VsaVZWY1VLYl9PbHFFYnQtZk5pZnQtUjNQN1QzQ1NPNVUwcjFPWU9ONjVSQ1lVRmQxLXRKS1RHeVVmbVBieWxjU1RsVUlzNGtXM1Z4cGtLVHE1Z2hVbXYzZlZYWQ&q=https%3A%2F%2Fformsubmit.co%2F
     ##AFTER SETTING THE HEADER for contact us section
