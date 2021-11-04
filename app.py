@@ -51,7 +51,7 @@ def Demo():
     # webrtc_streamer(key="demo",
     #                 video_transformer_factory=VideoTransformer)
 
-    webrtc_streamer(key="demo")
+    webrtc_streamer(key="example")
 
     # Showcase data
     chart_data = pd.DataFrame(np.random.randn(20, 3),
