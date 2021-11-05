@@ -117,7 +117,7 @@ def Models():
 def Demo():
     st.header("Computer Vision Software")
     st.write('Press START and move from side to side as if you were in a coaster (wahoo!). Press SHOW DATA to visualize your motion chart.')
-    st.write('*Mobile devices not supported. Make sure to have a high speed connection for the algo to perform correctly.*')
+    st.write('*Make sure to have a high speed connection for the algo to perform correctly.*')
 
     webrtc_ctx = webrtc_streamer(
         key="motion-tracker",
