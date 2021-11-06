@@ -46,7 +46,7 @@ Using data from Insight Coaster, we take safety measures to prevent body motion 
 2. Individual rider feedback: alert passengers to “hold tight” if captured motion looks abnormal.
 3. General roller coaster improvements: periodic passenger analysis allows to spot trends to aid maintenance and guide ride improvements.
 
-OUT OF SCOPE/FUTURE PLANS
+### OUT OF SCOPE/FUTURE PLANS
 - Infrared capability: the project could be easily adjusted to work at night rides (coasters like Sheikra, Hollywood Rip Ride Rockit) using an IR camera adaptor.
 - Sentiment tracking: recognizing passenger satisfaction/engagement throughout the ride could open the door for unprecedented UX optimization.
 
